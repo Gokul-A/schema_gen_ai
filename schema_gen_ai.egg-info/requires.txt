@@ -1,0 +1,4 @@
+pydantic>=2.11.7
+openai>=2.6.1
+anthropic>=0.71.0
+google-genai>=1.46.0

@@ -1,0 +1,80 @@
+Metadata-Version: 2.4
+Name: schema_gen_ai
+Version: 0.1.0
+Summary: A Python tool to generate Pydantic response schemas using various LLM APIs
+Home-page: https://github.com/Gokul-A/schema_gen_ai
+Author: Gokulakrishnan Anand
+Author-email: Gokulakrishnan Anand <gokula04@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Gokul-A/schema_gen_ai
+Project-URL: Repository, https://github.com/Gokul-A/schema_gen_ai
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic>=2.11.7
+Requires-Dist: openai>=2.6.1
+Requires-Dist: anthropic>=0.71.0
+Requires-Dist: google-genai>=1.46.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# LLM Schema Generator
+
+A Python library that generates Pydantic response schemas based on user descriptions using various LLM providers (OpenAI, Anthropic Claude, Google Gemini).
+
+## Installation
+
+Install from PyPI:
+
+pip install schema_gen_ai
+
+# Example: Using OpenAI
+
+from schema_gen_ai import generate_schema
+
+schema_code = generate_schema(
+    description="Extract name, age, and occupation from a person's bio",
+    provider="openai",
+    api_key="your_openai_api_key",  # Or set OPENAI_API_KEY env var
+    model="gpt-4o-mini"  # Optional
+)
+
+print(schema_code)
+
+
+# Example: Using gemini
+
+from schema_gen_ai import generate_schema
+
+schema_code = generate_schema(
+    description="Extract name, age, and occupation from a person's bio",
+    provider="gemini",
+    api_key="your_gemini_api_key",  # Or set GOOGLE_API_KEY env var
+    model="gemini-2.5-flash"  # Optional
+)
+
+print(schema_code)
+
+
+# Example: Using OpenAI
+
+from schema_gen_ai import generate_schema
+
+schema_code = generate_schema(
+    description="Extract name, age, and occupation from a person's bio",
+    provider="claude",
+    api_key="your_claude_api_key",  # Or set ANTHROPIC_API_KEY env var
+    model="claude-sonnet-4-5-20250929"  # Optional
+)
+
+print(schema_code)
